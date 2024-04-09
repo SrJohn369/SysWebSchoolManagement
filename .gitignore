@@ -4,8 +4,5 @@ venv
 # variáveis de ambiente
 .env
 
-# caches
-_pycache_
-
 # arquivos txt
 versoes.txt
