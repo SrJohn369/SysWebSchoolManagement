@@ -1,3 +1,17 @@
+:root{
+    --cor-infos: #51A3A3;
+    --cor-main: #1F2633;
+    --cor-links: black;
+}
+
+main{
+    background-color: var(--cor-main);
+}
+
+a{
+    color: var(--cor-links);
+}
+
 *{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -10,7 +24,7 @@
 nav{
     display: flex;
     justify-content: space-between;
-    border: 0.3rem black solid;
+    border: 0.1rem black solid;
     padding: 1.2rem;
 
     img{
@@ -33,7 +47,7 @@ nav{
         border: 0.1rem black solid;
         width: 7rem;
         display: none;
-        background-color: rgb(199, 190, 178);
+        background-color: #51A3A3;
     }
 }
 .dropdown:hover .dropdown_menu{
@@ -47,6 +61,9 @@ nav{
     gap: 0.4rem;
 
     a{
-        margin-left: 0.6rem;
+        align-self: center;
     }
+}
+.infos{
+    background-color: var(--cor-infos);
 }

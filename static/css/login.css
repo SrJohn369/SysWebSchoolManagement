@@ -1,26 +1,24 @@
 main{
     display: flex;
     justify-content: center;
-    background-color: blueviolet;
-    height: 79.5vh;
+    height: 82vh;
 }
 
-.formulario{
+.infos{
     text-align: center;
     align-self: center;
     align-content: center;
-    background-color: aqua;
     width: 20rem;
     height: 21rem;
     border: 0.1rem black solid;    
     border-radius: 0.7rem;
 }
-.formulario_content{
+.infos_content{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     
-    .formulario_content_grupo{
+    .infos_content_grupo{
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -30,6 +28,7 @@ main{
         margin-right: 1rem;
     }
     input{
+        text-align: center;
         width: 10rem;
         height: 1.5rem;
         margin-right: 1.5rem;
