@@ -1,8 +1,11 @@
+import json
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
-from django.http import HttpResponse
+from django.http import JsonResponse
+
 
 
 @login_required(login_url='loginInicio:login_usuario')
@@ -16,13 +19,27 @@ def login_usuario(request):
     if request.method == 'GET':
         return render(request, 'login.html')
     if request.method == 'POST':
-        login_email = request.POST.get('email')
-        login_senha = request.POST.get('senha')
-        user = authenticate(username=login_email, password=login_senha)
+        data = json.loads(request.body)
+        login_usuario = data.get('usuario')
+        login_senha = data.get('senha')
+        user = authenticate(username=login_usuario, password=login_senha)
         
         if user is not None:
             login(request, user)
             print('deu bom')
-            return redirect('home:home')
+            return redirect('loginInicio:inicio')
         else:
-            return HttpResponse(f'Senha incorreta \n {login_email} - {login_senha} \n {user}')
+            return JsonResponse({'erro': 'Usuario ou senha incorreta'}, status=404)
+
+
+@csrf_protect
+def cadDirecao(request):
+    if request.method == 'GET':
+        return render(request, 'cadDireção.html')
+    
+
+def escSenha(request):
+    if request.method == 'GET':
+        return render(request, 'escSenha.html')
+
+
