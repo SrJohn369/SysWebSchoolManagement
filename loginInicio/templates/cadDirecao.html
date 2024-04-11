@@ -8,7 +8,7 @@
         <h2>Direção</h2><hr>
         <div class="infos">
             <form method="post" class="infos_content">
-
+                {% csrf_token %}
                 <div class="title_form">
                     <a href={% url "loginInicio:login_usuario" %}>
                         <img src={% static "img/icons8-back-arrow-50.png" %} alt="Voltar" aria-details="Voltar">
