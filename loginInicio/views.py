@@ -35,7 +35,7 @@ def login_usuario(request):
 @csrf_protect
 def cadDirecao(request):
     if request.method == 'GET':
-        return render(request, 'cadDireção.html')
+        return render(request, 'cadDirecao.html')
     
 
 def escSenha(request):

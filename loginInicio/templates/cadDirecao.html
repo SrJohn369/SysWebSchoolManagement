@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block estilos %}
+    <link rel="stylesheet" href={% static "css/cadDirecao.css" %}>
+{% endblock estilos %}
+{% block main %}
+    <main>
+        <h2>Direção</h2><hr>
+        <div class="infos">
+            <form method="post" class="infos_content">
+
+                <div class="title_form">
+                    <a href={% url "loginInicio:login_usuario" %}>
+                        <img src={% static "img/icons8-back-arrow-50.png" %} alt="Voltar" aria-details="Voltar">
+                    </a>
+                    <p>Cadastro Direção</p>
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nomeCad" placeholder="Digite seu nome...">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" id="cpfCad" placeholder="Digite seu cpf...">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="Data de Nascimento">Data de Nascimento</label>
+                    <input type="date" name="Data de Nascimento" id="dateCad">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="Email">Email</label>
+                    <input type="email" name="Email" id="emailCad" placeholder="Digite seu email...">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="Senha">Senha</label>
+                    <input type="password" name="Senha" id="senhaCad" placeholder="Crie uma senha...">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="Confirmar Senha">Confirmar Senha</label>
+                    <input type="password" name="Confirmar Senha" id="confrmSenhaCad" placeholder="Confirme sua senha...">
+                </div>
+                <input type="submit" value="Criar Usuario">
+            </form>
+        </div>
+    </main>
+{% endblock main %}

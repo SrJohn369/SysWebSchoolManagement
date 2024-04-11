@@ -1,17 +1,9 @@
+/* GERAL */
 :root{
     --cor-infos: #51A3A3;
     --cor-main: #1F2633;
     --cor-links: black;
 }
-
-main{
-    background-color: var(--cor-main);
-}
-
-a{
-    color: var(--cor-links);
-}
-
 *{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -21,23 +13,52 @@ a{
     text-decoration: none;
 }
 
+/* TAGS */
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--cor-main);
+
+    h2{
+        justify-content: center;
+        align-self: center;
+        color: white;
+        margin: 1rem;
+    }
+    hr{
+        width: 80%;
+        align-self: center;
+    }
+}
+a{
+    color: var(--cor-links);
+}
 nav{
     display: flex;
     justify-content: space-between;
     border: 0.1rem black solid;
     padding: 1.2rem;
+    height: 6rem;
 
     img{
         width: 4rem;
         border-radius: 5rem;
         display: none;
     }
-    h2{
+    h1{
         justify-self: center;
         align-self: center;
     }
 }
+span{
+    height: 0;
+    font-size: 0.8rem;
+    color: red;
+    display: none;
+}
 
+/* CLASSES */
 /* Estilo para o container do dropdown */
 .dropdown{
     margin-right: 2rem;
@@ -66,5 +87,76 @@ nav{
     }
 }
 .infos{
+    text-align: center;
+    align-self: center;
+    align-content: center;
+    width: 20rem;
+    height: 21rem;
+    border: 0.1rem black solid;    
+    border-radius: 0.7rem;
     background-color: var(--cor-infos);
+}
+.infos_content{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    
+    .infos_content_grupo{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    a{
+        align-self: flex-end;
+        margin-right: 1rem;
+    }
+    input{
+        text-align: center;
+        width: 10rem;
+        height: 1.5rem;
+        margin-right: 1.5rem;
+        border-radius: 0.2rem;
+        border: none;
+    }
+    input[type=submit]{
+        text-align: center;
+        width: 3.5rem;
+        align-self: center;
+        border-radius: 0.2rem;
+        border: none;
+    }
+    label{
+        margin-left: 1rem;
+    }
+    p{
+        font-size: large;
+        font-weight: bold;
+    }
+}
+.title_form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    a{
+        margin-left: 1rem;
+    }
+    p{
+        margin-right: 10rem;
+    }
+}
+
+/* IDs */
+#carregamento {
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    display: none;
 }
