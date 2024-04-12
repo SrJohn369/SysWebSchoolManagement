@@ -1,1 +1,54 @@
-ALTERAR DIRECAO ESTA FUNCIONANDO!!
+{% extends "base.html" %}
+{% load static %}
+{% block estilos %}
+    <link rel="stylesheet" href={% static "css/alterar.css" %}>
+{% endblock estilos %}
+
+{% block main %}
+    <main>
+        <div class="infos">
+            <form method="post" class="infos_content">
+                <p>Alterar Direção</p><hr style="width: 70%;">
+                <div class="infos_content_grupo">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nomeAlterar">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="cpf">cpf</label>
+                    <input type="text" name="cpf" id="cpfAlterar">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="datanasc">Data de Nascimento</label>
+                    <input type="date" name="datanasc" id="datanascAlterar">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="emailAlterar">
+                </div>
+
+                <button type="button">Alterar Senha</button>
+                <div class="btn_alterar_senha">
+                    <div class="senha_antiga">
+                        <label for="senhaAntiga">Senha antiga</label>
+                        <input type="text" name="senhaAntiga" id="senhaAntigaAlterar">
+                    </div>
+                    <div class="nova_senha">
+                        <div class="nova_senha_itens">
+                            <label for="senhaNova">Nova senha</label>
+                            <input type="password" name="senhaNova" id="senhaNovaAlterar">
+                        </div>
+                        <div class="nova_senha_itens">
+                            <label for="senhaConfirm">Confiramar senha</label>
+                            <input type="password" name="senhaConfirm" id="senhaConfirmAlterar">
+                        </div>
+                    </div>
+                </div>
+
+                <input type="submit" value="Alterar">
+            </form>
+        </div>
+    </main>    
+{% endblock main %}
+
+{% block javascript %}
+{% endblock javascript %}

@@ -20,4 +20,7 @@ nav{
     .dropdown{
         display: none;
     }
+    img{
+        display: none;
+    }
 }

@@ -6,3 +6,6 @@
 .infos_content input[type=submit]{
     width: 7rem;
 }
+nav img{
+    display: none;
+}
