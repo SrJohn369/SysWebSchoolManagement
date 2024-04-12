@@ -18,8 +18,8 @@
             <div class="dropdown">
                 <img src={% static "img/icone_perfil.jpg" %} alt="perfil" class="dropbtn">
                 <div class="dropdown_menu">
-                    <a href="">Alterar</a>
-                    <a href="">Exit</a>
+                    <a href={% url "direcao:alterar" %}>Alterar</a>
+                    <a href={% url "loginInicio:logout_usuario" %}>Exit</a>
                 </div>
             </div>
         </nav>

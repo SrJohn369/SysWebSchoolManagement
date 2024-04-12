@@ -1,14 +1,14 @@
 import json
 
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.http import JsonResponse
 
 
 
-@login_required(login_url='loginInicio:login_usuario')
+# @login_required(login_url='loginInicio:login_usuario')
 def inicio(request):
     if request.method == 'GET':
         return render(request, 'inicio.html')
@@ -30,6 +30,11 @@ def login_usuario(request):
             return redirect('loginInicio:inicio')
         else:
             return JsonResponse({'erro': 'Usuario ou senha incorreta'}, status=404)
+        
+
+def logout_usuario(request):
+    # logout(request)
+    return redirect('loginInicio:login_usuario')
 
 
 @csrf_protect
