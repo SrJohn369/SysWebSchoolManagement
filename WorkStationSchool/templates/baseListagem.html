@@ -38,8 +38,8 @@
                         <td>123456778</td>
                         <td>00/99/9999</td>
                         <td>
-                            {% for td in data_static.td_links %}
-                                <a href="">{{td}}</a>
+                            {% for td, link in data_static.td_links.items %}
+                                <a href={% url link %}>{{td}}</a>
                             {% endfor %}
                         </td>
                     </tr>

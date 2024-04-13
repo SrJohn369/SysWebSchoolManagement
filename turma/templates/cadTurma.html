@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block estilos %}
+    <link rel="stylesheet" href={% static "css/cadTurma.css" %}>
+{% endblock estilos %}
+
+{% block main %}
+
+<main>
+    <h2><a href={% url "turma:turma" %}>Turma</a></h2><hr>
+    <div class="infos">
+        <form method="post" class="infos_content">
+            {% csrf_token %}
+            <div class="infos_bloco">
+                <div class="infos_content_grupo">
+                    <label for="nome">Digite o nome da Turma</label>
+                    <input type="text" name="nome" id="nomeCad">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="Ano">Digite o Ano</label>
+                    <input type="number" name="Ano" id="">
+                </div>
+                <div class="infos_content_grupo">
+                    <label for="Data de Nascimento">Data de Nascimento</label>
+                    <input type="date" name="Data de Nascimento" id="dateCad">
+                </div>
+            </div>
+            <div class="vincular">
+                <button type="button">Vincular Docentes</button>
+                <button type="button">Vincular Alunos</button>
+            </div>
+            <span></span>
+            <input type="submit" value="{{submit}}">
+        </form>
+    </div>
+</main>
+
+{% endblock main %}
+
+{% block javascript %}
+{% endblock javascript %}

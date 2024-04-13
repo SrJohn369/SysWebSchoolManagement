@@ -1,0 +1,24 @@
+.infos{
+    margin: 3rem;
+    width: 24rem;
+    height: 27rem;
+}
+.infos_content {
+    input[type=submit]{
+        width: 7rem;
+    }
+    p {
+        margin-right: auto;
+    }
+    a {
+        color: blue;
+        text-decoration: underline;
+    }
+}
+.infos_content_grupo_gerarSenha{
+    display: flex;
+
+    a {
+        margin-left: 3rem;
+    }
+}

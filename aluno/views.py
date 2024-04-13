@@ -11,12 +11,25 @@ def aluno(request):
             'titulo': 'Aluno(a)',
             'link': 'aluno:cadAluno',
             'th_tabela': ['Nome', 'CPF', 'Data de Nascimento', 'Opções'],
-            'td_links': ['Alterar', 'Excluir']
+            'td_links': {
+                'Alterar':'aluno:altAluno',
+                'Excluir':'aluno:excluirAluno'
+            }
         }
         return render(request, 'baseListagem.html', {'data_static': data_static})
     
     
 def cadAluno(request):
     if request.method == 'GET':
-        
-        render(request, 'cadAluno.html')
+        return render(request, 'cadAluno.html', {'titulo': 'Cadastrar Aluno(a)',
+                                                 'submit': 'Cadastrar'})
+    
+    
+def altAluno(request):
+    if request.method == 'GET':
+        return render(request, 'cadAluno.html', {'titulo': 'Alterar Aluno(a)',
+                                                 'submit': 'Alterar'})
+    
+    
+def excluirAluno(request):
+    pass

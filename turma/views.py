@@ -10,7 +10,12 @@ def turma(request):
             'titulo': 'Turma',
             'link': 'turma:cadTurma',
             'th_tabela': ['Nome da Turma', 'Ano', 'Data de Criação', 'Opções'],
-            'td_links': ['Ver Docente', 'Ver Aluno','Alterar', 'Excluir']
+            'td_links': {
+                'Ver Docentes':'turma:verDocentesTurma', 
+                'Ver Alunos':'turma:verAlunosTurma',
+                'Alterar':'turma:altTurma',
+                'Excluir':'turma:excluirTurma'
+            }
         }
         return render(request, 'baseListagem.html', {'data_static': data_static})
     
@@ -18,4 +23,25 @@ def turma(request):
 # @login_required(login_url='loginInicio:login')
 def cadTurma(request):
     if request.method == 'GET':
-        return render(request, 'cadTurma.html')
+        return render(request, 'cadTurma.html', {'submit': 'Criar Turma'})
+    
+    
+# @login_required(login_url='loginInicio:login')
+def altTurma(request):
+    if request.method == 'GET':
+        return render(request, 'cadTurma.html', {'submit': 'Alterar Turma'})
+    
+    
+# @login_required(login_url='loginInicio:login')
+def excluirTurma(request):
+    pass
+
+
+# @login_required(login_url='loginInicio:login')
+def verDocentesTurma(request):
+    pass
+
+
+# @login_required(login_url='loginInicio:login')
+def verAlunosTurma(request):
+    pass

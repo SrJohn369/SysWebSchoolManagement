@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block estilos %}
+    <link rel="stylesheet" href={% static "css/cadDisciplina.css" %}>
+{% endblock estilos %}
+
+{% block main %}
+
+<main>
+    <h2><a href={% url "disciplina:disciplina" %}>Disciplina</a></h2><hr>
+    <div class="infos">
+        <form method="post" class="infos_content">
+            {% csrf_token %}
+            <div class="infos_content_grupo">
+                <label for="nome">Digite a Disciplina</label>
+                <input type="text" name="nome" id="nomeCad" placeholder="Digite a Disciplina...">
+            </div>
+            <div class="infos_content_grupo">
+                <label for="Data de Nascimento">Data de criação</label>
+                <input type="date" name="Data de Nascimento" id="dateCad">
+            </div>
+            <input type="submit" value='{{data_static}}'>
+        </form>
+    </div>
+</main>
+
+{% endblock main %}
+
+{% block javascript %}
+{% endblock javascript %}

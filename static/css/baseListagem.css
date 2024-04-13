@@ -52,5 +52,10 @@ table{
     td{
         border-right: 2px black solid;
         text-align: center;
+        a {
+            margin: 0 0.4rem;
+            color: blue;
+            text-decoration: underline;
+        }
     }
 }
