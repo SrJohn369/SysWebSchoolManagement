@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href='{% static data_static.css %}'>
+{% endblock estilos %}
+
+{% block main %}
+
+<main>
+    <div class="listagem">
+        <div class="titulo">
+            <h3>{{data_static.titulo}}</h3>
+            <a href='{% url data_static.link %}'><img src={% static "img/icons8-plus-32.png" %} alt="sinal de soma"></a>
+        </div>
+        <hr style="width: 80%;">
+        <div class="pesquisa">
+            <label for="pesquisa">Digite o nome</label>
+            <input type="search" name="pesquisa" id="">
+            <button type="button">Pesquisar</button>
+        </div>
+        <div class="lista_tabela">
+            <table>
+                <thead>
+                    <tr>
+                        {% for th in data_static.th_tabela %}
+                            {% if data_static.titulo == 'Turma' and th == 'Opções'%}
+                                <th style="width: 22rem;">{{th}}</th>
+                            {% else %}
+                                <th>{{th}}</th>
+                            {% endif %}    
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>fulano</td>
+                        <td>123456778</td>
+                        <td>00/99/9999</td>
+                        <td>
+                            {% for td in data_static.td_links %}
+                                <a href="">{{td}}</a>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+{% endblock main %}
+
+{% block javascript %}
+{% endblock javascript %}

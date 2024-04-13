@@ -5,5 +5,6 @@ from disciplina.views import *
 app_name = 'disciplina'
 
 urlpatterns = [
-    path('', disciplina, name='disciplina')
+    path('', disciplina, name='disciplina'),
+    path('cadastrar_diciplina/', cadDisciplina, name='cadDisciplina')
 ]

@@ -51,7 +51,9 @@ ROOT_URLCONF = 'WorkStationSchool.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR/'WorkStationSchool'/'templates'
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

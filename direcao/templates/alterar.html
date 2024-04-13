@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 {% block estilos %}
-    <link rel="stylesheet" href={% static "css/alterar.css" %}>
+    <link rel="stylesheet" href={% static "css/alterarDirecao.css" %}>
 {% endblock estilos %}
 
 {% block main %}
     <main>
         <div class="infos">
             <form method="post" class="infos_content">
+                {% csrf_token %}
                 <p>Alterar Direção</p><hr style="width: 70%;">
                 <div class="infos_content_grupo">
                     <label for="nome">Nome</label>
