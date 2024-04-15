@@ -84,7 +84,7 @@ DATABASES = {
 }
 
 DATABASES['default'] = dj_database_url.parse(
-    "postgres://postgres.rqankirxhaaivdgcimoz:MBkkA4gJnlhJNyVI@aws-0-sa-east-1.pooler.supabase.com:5432/postgres"
+    os.environ.get('URLDATABASE')
 )
 
 # Password validation

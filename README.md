@@ -20,5 +20,10 @@ Sistema é criado totalmente em Django que é de arquitetura MVT(Model View Temp
 ![Static Badge](https://img.shields.io/badge/supabase-%233FCF8E?style=for-the-badge&logo=supabase&logoColor=%23fff)
 
 ## Endpoints da API 
-
+1. 
+2.
+3.
+## Estrutura do codigo
+## Versão atual
+## Como usar na máquina
 ## Desenvolvedor
