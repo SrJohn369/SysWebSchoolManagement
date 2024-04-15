@@ -24,6 +24,34 @@ Sistema é criado totalmente em Django que é de arquitetura MVT(Model View Temp
 2.
 3.
 ## Estrutura do codigo
-## Versão atual
+## Versão atual 
+![GitHub Tag](https://img.shields.io/github/v/tag/SrJohn369/SysWebSchoolManagement?style=for-the-badge&label=Vers%C3%A3o)  
+
+### Ações possíveis:
+1. Cadastrar, fazer login e logout da Direção 
+2. Cadastrar Alunos, Docentes e outros Diretores
+3. Visualizar Alunos, Docentes, Turmas, Disciplinas e Diretores cadastrados
+
+### Versões futuras:
+##### Ações possíveis:
+- v1.16.27:  
+- - Cadastrar Turma
+- - Telas Vincular Docente, Disciplina e Alunos
+- - Vincular Docente, Disciplina e Alunos
+- v1.18.28:
+- - Pesquisar Nome
+- v1.18.29:
+- - Redefinir Senha da direção via email
+- v1.20.29:
+- - Tela Detalhar Docente e Aluno
+- v1.20.32:
+- - Alterar Aluno, Turma, Disciplina, Docente, Direção
+- v1.20.35:
+- - Deletar Aluno, Turma, Disciplina, Docente, Direção
+- v1.21.36:
+- - Tela Gerar boletim
+- - Função Gerar boletim
 ## Como usar na máquina
+### Para usar o sistema na sua máquina siga os seguintes passos
+1. Passo 
 ## Desenvolvedor
