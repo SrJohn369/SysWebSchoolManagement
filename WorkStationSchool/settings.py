@@ -18,7 +18,10 @@ ALLOWED_HOSTS = [
     'syswebschoolmanagement.onrender.com', 'localhost'
 ]
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8000', 'https://syswebschoolmanagement.onrender.com'
+    'https://127.0.0.1:8000', 'https://syswebschoolmanagement.onrender.com'
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://syswebschoolmanagement.onrender.com", "https://127.0.0.1:8000"
 ]
 
 
