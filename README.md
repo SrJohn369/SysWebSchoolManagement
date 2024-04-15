@@ -20,10 +20,32 @@ Sistema é criado totalmente em Django que é de arquitetura MVT(Model View Temp
 ![Static Badge](https://img.shields.io/badge/supabase-%233FCF8E?style=for-the-badge&logo=supabase&logoColor=%23fff)
 
 ## Endpoints da API 
-1. 
-2.
-3.
-## Estrutura do codigo
+##### https://syswebschoolmanagement.onrender.com/api/docentes Docentes API
+Este endpoint retorná todos os docentes cadastrados com os dados:
+- nome
+- cpf
+- data de nascimento
+##### https://syswebschoolmanagement.onrender.com/api/alunos Aluno API
+Este endpoint retorná todos os docentes cadastrados com os dados:
+- nome
+- cpf
+- data de nascimento
+##### https://syswebschoolmanagement.onrender.com/api/diretores Direcao API
+Este endpoint retorná todos os docentes cadastrados com os dados:
+- nome
+- cpf
+- data de nascimento
+## Como usar a aplicação na sua máquina
+### Para usar o sistema na sua máquina siga os seguintes passos
+1. Baixe o repositório na sua máquina clicando [aqui](https://github.com/SrJohn369/SysWebSchoolManagement/archive/refs/heads/main.zip)  
+
+2. Crie um ambiente de desenvolvimento python. Você pode rodar o comando ```python -m venv venv``` no seu 
+terminal para criar um ambiente virtual.
+3. Ative seu ambiente virtual. Pelo Windows basta usar ```venv\Scripts\activate```
+4. Crie um arquivo de variáveis de ambiente `.env` e coloque as variáveis `URLDATABASE` com a url do seu banco de dados e uma `SECRET_KEY` para Django.
+5. Rode o comando `pip intall -r requirements.txt` para instalar as dependências.
+6. Rode o comando `python manager.py runserver` para rodar o servidor e iniciar a aplicação.
+7. Faça bom uso :smile: .
 ## Versão atual 
 ![GitHub Tag](https://img.shields.io/github/v/tag/SrJohn369/SysWebSchoolManagement?style=for-the-badge&label=Vers%C3%A3o)  
 
@@ -51,7 +73,6 @@ Sistema é criado totalmente em Django que é de arquitetura MVT(Model View Temp
 - v1.21.36:
 - - Tela Gerar boletim
 - - Função Gerar boletim
-## Como usar na máquina
-### Para usar o sistema na sua máquina siga os seguintes passos
-1. Passo 
 ## Desenvolvedor
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/106630200?v=4" width=115><br><sub>João Victor</sub>](https://github.com/SrJohn369) | 
+| :---: |
