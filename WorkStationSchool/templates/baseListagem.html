@@ -7,7 +7,6 @@
 
 {% block main %}
 
-<main>
     <div class="listagem">
         <div class="titulo">
             <h3>{{data_static.titulo}}</h3>
@@ -33,21 +32,35 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for data in data_cadastros %}
                     <tr>
-                        <td>fulano</td>
-                        <td>123456778</td>
-                        <td>00/99/9999</td>
+                        {% if data.cpf %}
+                        <td>{{data.nome}}</td>
+                        <td>{{data.cpf}}</td>
+                        <td>{{data.data_nascimento}}</td>
+                        {% elif data.nome_disciplina %}
+                        <td>{{data.nome_disciplina}}</td>
+                        <td>{{data.data_criacao}}</td>
+                        {% elif data.ano %}
+                        <td>{{data.nome_turma}}</td>
+                        <td>{{data.ano}}</td>
+                        <td>{{data.data_criacao}}</td>
+                        {% endif %}
                         <td>
                             {% for td, link in data_static.td_links.items %}
                                 <a href={% url link %}>{{td}}</a>
                             {% endfor %}
                         </td>
                     </tr>
+                    {% empty %}
+                        <tr>
+                            {% for i in data_static.th_tabela %}<td>Sem cadastros</td>{% endfor %}
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-</main>
 
 {% endblock main %}
 

@@ -8,6 +8,9 @@
 
     <link rel="stylesheet" href={% static "css/base.css" %}>
     {% block estilos %}{% endblock estilos %}
+    <script>
+        let isAuthenticated = {% if user.is_authenticated %}true{% else %}false{% endif %}
+    </script>
 
 </head>
 <body>
@@ -16,7 +19,7 @@
             <h4>Edu Station</h4>
             <h1><a href={% url "loginInicio:inicio" %}>Direção WorkStation</a></h1>
             <div class="dropdown">
-                <img src={% static "img/icone_perfil.jpg" %} alt="perfil" class="dropbtn">
+                <img src={% static "img/icone_perfil.jpg" %} alt="perfil" class="dropbtn" id="img-drop">
                 <div class="dropdown_menu">
                     <a href={% url "direcao:altDirecao" %}>Alterar</a>
                     <a href={% url "loginInicio:logout_usuario" %}>Exit</a>
@@ -24,11 +27,14 @@
             </div>
         </nav>
     </header>
+    <main>
+        <div id="carregamento" >
+            <p>Carregando...</p>
+        </div>
+        {% block main %}
+        {% endblock main %}
+    </main>
 
-    {% block main %}
-    {% endblock main %}
-
-    <script src={% static "javascript/base.js" %}></script>
     {% block javascript %}{% endblock javascript %}
 </body>
 </html>

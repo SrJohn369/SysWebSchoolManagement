@@ -51,11 +51,12 @@ nav{
         align-self: center;
     }
 }
-span{
+.spanInfo {
     height: 0;
-    font-size: 0.8rem;
+    font-size: 1rem;
     color: red;
     display: none;
+    font-weight: 700;
 }
 
 /* CLASSES */
@@ -160,3 +161,43 @@ span{
     font-size: 2em;
     display: none;
 }
+
+/* TELA DE POP-UP */
+.modal {
+    display: none; /* Inicia oculto */
+    position: fixed; /* Posição fixa na tela */
+    z-index: 1; /* Sobrepondo outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Adiciona rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.705); /* Fundo semi-transparente */
+}
+  
+  /* Estilo para o conteúdo do modal */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: 15% auto; /* Centraliza verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+  
+  /* Estilo para o botão de fechar */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+  

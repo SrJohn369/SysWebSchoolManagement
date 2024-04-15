@@ -6,3 +6,9 @@ venv
 
 # arquivos txt
 versoes.txt
+
+# python caches
+__pycache__
+/__pycache__
+/__pycache__/
+__pycache__/

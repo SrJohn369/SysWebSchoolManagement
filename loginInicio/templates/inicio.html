@@ -5,15 +5,13 @@
 {% endblock estilos %}
 
 {% block main %}
-    <main>
-        <div class="infos">
-            <div class="infos_content">
-                <a href={% url "direcao:direcao" %}>Direção</a>
-                <a href={% url "docente:docente" %}>Docente</a>
-                <a href={% url "aluno:aluno" %}>Aluno(a)</a>
-                <a href={% url "disciplina:disciplina" %}>Disciplina</a>
-                <a href={% url "turma:turma" %}>Turma</a>
-            </div>
+    <div class="infos">
+        <div class="infos_content">
+            <a href={% url "direcao:direcao" %}>Direção</a>
+            <a href={% url "docente:docente" %}>Docente</a>
+            <a href={% url "aluno:aluno" %}>Aluno(a)</a>
+            <a href={% url "disciplina:disciplina" %}>Disciplina</a>
+            <a href={% url "turma:turma" %}>Turma</a>
         </div>
-    </main>
+    </div>
 {% endblock main %}

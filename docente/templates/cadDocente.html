@@ -6,7 +6,6 @@
 
 {% block main %}
 
-<main>
     <h2>Docente</h2><hr>
     <div class="infos">
         <form method="post" class="infos_content">
@@ -34,16 +33,31 @@
                 <input type="email" name="Email" id="emailCad" placeholder="Digite seu email...">
             </div>
             <div class="infos_content_grupo_gerarSenha">
-                <label for="Senha">Senha</label>
-                <a href="" id="gereSenha" name="Senha">Gerar senha</a>
+                <label for="Senha">Senha Temporaria</label>
+                <button type="button" id="gerePass" name="Senha" onclick="gerarSenha()">Gerar senha</button>
             </div>
-            <span></span>
-            <input type="submit" value="{{submit}}">
+            <span id="gerar_senha" class="spanInfo"></span>
+            <span id="aviso_gerePass" class="spanInfo">Gere uma senha e anote!</span>
+            <input type="submit" value="{{submit}}" id="submit" >
         </form>
     </div>
-</main>
+    <div id="cadSuccessfully" class="modal" >
+        <div class="modal-content" >
+            <div class="opcoes-content">
+                <!-- pop-up content-->
+                <img src={% static "img/icons8-check-96.png" %}>
+                <p>Cadastro efetuado com sucesso!</p>
+                <div class="dados_user" id="dados_user">
+                    <p id="dados_user_nameUser"></p>
+                    <p id="dados_user_pass"></p>
+                </div>
+                <button type="button" onclick="voltarConfirm()">Voltar para Docente</button>
+            </div>
+        </div>
+    </div>
 
 {% endblock main %}
 
 {% block javascript %}
+    <script src={% static "javascript/cadDocente.js" %}></script>
 {% endblock javascript %}

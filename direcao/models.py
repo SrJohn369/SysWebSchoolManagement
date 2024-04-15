@@ -4,12 +4,12 @@ from django.db import models
 
 class Direcao(User):
     
-    cpf = models.CharField(max_length=11)
-    data_nasc = models.DateField()
+    cpf = models.CharField(max_length=14, primary_key=True)
+    data_nasc = models.DateTimeField()
     
     def __str__(self) -> str:
-        return f'{self.first_name}'
+        return f'{self.username}'
     
     class Meta:
-        verbose_name = 'Diretion'
+        verbose_name = 'Diretio(a)'
 

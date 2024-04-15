@@ -1,3 +1,6 @@
+document.getElementById('senha').addEventListener('focus', () => {
+    document.getElementById('span-incorrect').style.display = 'none';
+});
 //função para pegar cookie do csrf_token
 function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -12,7 +15,7 @@ document.getElementById('submit-button').addEventListener('click', async (event)
     let csrf_token = getCookie('csrftoken');
     let usuario = document.getElementById('usuario').value;
     let senha = document.getElementById('senha').value;
-    const url = `http://localhost:8000/login/`;
+    const url = `/login/`;
 
     let dados = {
         method: 'POST',
@@ -27,7 +30,11 @@ document.getElementById('submit-button').addEventListener('click', async (event)
 
     await fetch(url, dados)
             .then((response) => {
-                if (response.status === 404){
+                if (response.status === 200) {
+                    console.log('LOGOU');
+                    document.getElementById('carregamento').style.display = 'none';
+                    window.location.href = '/';
+                } else if (response.status === 404){
                     document.getElementById('carregamento').style.display = 'none';
                     document.getElementById('span-incorrect').style.display = 'block';
                 }

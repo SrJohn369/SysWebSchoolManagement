@@ -4,29 +4,24 @@
     <link rel="stylesheet" href={% static "css/login.css" %}>
 {% endblock estilos %}
 {% block main %}
-    <main>
-        <div class="infos">            
-            <form method="post" class="infos_content">
-                {% csrf_token %}
-                <p>Login</p>
-                <div class="infos_content_grupo">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" name="usuario" id="usuario" placeholder="Digite seu usuário">
-                </div>
-                <div class="infos_content_grupo">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" placeholder="Digite sua senha...">
-                </div>
-                <span id="span-incorrect">Usuário ou senha incorretos!</span>
-                <a href={% url "loginInicio:cadDirecao" %}>Primeira vez aqui?</a>
-                <a href={% url "loginInicio:escSenha" %}>Esqueceu a senha?</a>
-                <input type="submit" value="Entrar" class="button" id="submit-button">
-            </form>
-        </div>
-        <div id="carregamento" >
-            <p>Carregando...</p>
-        </div>
-    </main>
+    <div class="infos">            
+        <form method="post" class="infos_content">
+            {% csrf_token %}
+            <p>Login</p>
+            <div class="infos_content_grupo">
+                <label for="usuario">Usuario</label>
+                <input type="text" name="usuario" id="usuario" placeholder="Digite seu usuário">
+            </div>
+            <div class="infos_content_grupo">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua senha...">
+            </div>
+            <span id="span-incorrect" class="spanInfo">Usuário ou senha incorretos!</span>
+            <a href={% url "loginInicio:cadDirecao" %}>Primeira vez aqui?</a>
+            <a href={% url "loginInicio:escSenha" %}>Esqueceu a senha?</a>
+            <input type="submit" value="Entrar" class="button" id="submit-button">
+        </form>
+    </div>
 {% endblock main %}
 {% block javascript %}
     <script src={% static "javascript/login.js" %}></script>
