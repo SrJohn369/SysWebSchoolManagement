@@ -17,6 +17,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'syswebschoolmanagement.onrender.com', 'localhost'
 ]
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8000', 'syswebschoolmanagement.onrender.com'
+]
 
 
 # Application definition
@@ -36,6 +39,7 @@ INSTALLED_APPS = [
     'turma',
     'rest_framework',
     'api',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -46,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'WorkStationSchool.urls'
