@@ -163,7 +163,7 @@ nav{
 }
 
 /* TELA DE POP-UP */
-.modal {
+.modal, .modalDocente, .modalAluno {
     display: none; /* Inicia oculto */
     position: fixed; /* Posição fixa na tela */
     z-index: 1; /* Sobrepondo outros elementos */
@@ -173,31 +173,29 @@ nav{
     height: 100%;
     overflow: auto; /* Adiciona rolagem se necessário */
     background-color: rgba(0, 0, 0, 0.705); /* Fundo semi-transparente */
+    /* Estilo para o conteúdo do modal */
+    .modal_content {
+      display: flex;
+      flex-direction: column;
+      background-color: #fefefe;
+      border: 1px solid #888;
+      color: #000;
+    }
+    
+    /* Estilo para o botão de fechar */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
 }
-  
-  /* Estilo para o conteúdo do modal */
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    background-color: #fefefe;
-    margin: 15% auto; /* Centraliza verticalmente */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-  
-  /* Estilo para o botão de fechar */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-  
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
+
   

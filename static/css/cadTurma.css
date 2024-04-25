@@ -57,3 +57,8 @@ main {
         border: none;
     }
 }
+
+.modal_content {
+    width: 50%;
+    margin: auto;
+}

@@ -20,7 +20,7 @@
                     <input type="number" name="Ano" id="">
                 </div>
                 <div class="infos_content_grupo">
-                    <label for="Data de Nascimento">Data de Nascimento</label>
+                    <label for="Data de Nascimento">Data de Criação</label>
                     <input type="date" name="Data de Nascimento" id="dateCad">
                 </div>
             </div>
@@ -32,16 +32,19 @@
             <input type="submit" value="{{submit}}">
         </form>
         <div id="myModalDocente" class="modalDocente">
-            <div class="modal-content-Docente">
-                <span class="close">&times;</span>
-                <div>
-                    <!-- pop-up -->
+            <div class="modal_content">
+                <div class="modal_content_docente">
+                    <p>Vincular Docente</p><hr>
+                    <p>Docente</p>
+                    <select name="" id="">
+                        <option value="Docente1">Docente1</option>
+                        <option value="Docente2">Docente2</option>
+                    </select>
                 </div>
             </div>
         </div>
         <div id="myModalAluno" class="modalAluno">
-            <div class="modal-content-Aluno">
-                <span class="close">&times;</span>
+            <div class="modal_content">
                 <div>
                     <!-- pop-up -->
                 </div>
@@ -52,5 +55,5 @@
 {% endblock main %}
 
 {% block javascript %}
-    <script src={% static "javascript/base.js" %}></script>
+    <script src={% static "javascript/cadTurma.js" %}></script>
 {% endblock javascript %}

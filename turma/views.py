@@ -38,6 +38,8 @@ def turma(request):
 def cadTurma(request):
     if request.method == 'GET':
         return render(request, 'cadTurma.html', {'submit': 'Criar Turma'})
+    if request.method == 'POST':
+        pass
     
     
 @login_required(login_url='loginInicio:login')
