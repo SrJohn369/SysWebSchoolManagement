@@ -56,7 +56,7 @@ terminal para criar um ambiente virtual.
 
 ### Versões futuras:
 ##### Ações possíveis:
-- v1.16.27:  
+- v1.18.27:  
 - - Cadastrar Turma
 - - Telas Vincular Docente, Disciplina e Alunos
 - - Vincular Docente, Disciplina e Alunos
