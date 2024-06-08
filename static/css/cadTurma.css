@@ -58,7 +58,7 @@ main {
     }
 }
 
-.modal_content {
+.modal-content {
     width: 40%;
     margin: auto;
     .modal_content_docente, .modal_content_aluno{
