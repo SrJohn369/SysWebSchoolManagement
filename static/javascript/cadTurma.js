@@ -3,8 +3,8 @@ let modalDocente = document.getElementById('myModalDocente');
 let modalAluno = document.getElementById('myModalAluno');
 let btnDocente = document.getElementById('openModalDocente');
 let btnAluno = document.getElementById('openModalAluno');
-let spanAluno = document.getElementById('spanAluno');
-let spanDocente = document.getElementById('spanDocente');
+let btnSairAluno = document.getElementById('btn_sair_aluno');
+let btnSairDocente = document.getElementById('btn_sair_docente');
 
 // Define ação de clique para abrir o modal
 btnDocente.onclick = () => {
@@ -15,10 +15,10 @@ btnAluno.onclick = () => {
 }
 
 // Define ação de clique para fechar o modal
-spanAluno.onclick = () => {
+btnSairAluno.onclick = () => {
   modalAluno.style.display = "none";
 }
-spanDocente.onclick = () => {
+btnSairDocente.onclick = () => {
     modalDocente.style.display = "none";
 }
 

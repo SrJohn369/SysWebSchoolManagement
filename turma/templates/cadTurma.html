@@ -36,17 +36,44 @@
                 <div class="modal_content_docente">
                     <p>Vincular Docente</p><hr>
                     <p>Docente</p>
-                    <select name="" id="">
-                        <option value="Docente1">Docente1</option>
-                        <option value="Docente2">Docente2</option>
+                    <select name="select_docente" id="select_docente">
+                        {% for docente in data_docente %}
+                        <option value="{{docente}}">{{docente.nome}}</option>
+                        {% empty %}
+                        <option value="------">-----</option>
+                        {% endfor %}
                     </select>
+                    <div class="disciplinas_checkbox">
+                        {% for disciplina in data_disciplina %}
+                        <div class="disciplinas_checkbox_disciplina">
+                            <input type="checkbox" name="checkbox{{forloop.counter}}" id="checkboxID{{forloop.counter}}">
+                            <label for="checkbox{{forloop.counter}}">{{disciplina}}</label>
+                        </div>
+                        {% empty %}
+                        <p>SEM DISCIPLINAS</p>
+                        {% endfor %}
+                    </div>
+                    <button type="button" id="btn_sair_docente">Sair</button>
                 </div>
             </div>
         </div>
         <div id="myModalAluno" class="modalAluno">
-            <div class="modal_content">
-                <div>
-                    <!-- pop-up -->
+            <div class="modal_content modal_aluno">
+                <div class="modal_content_aluno">
+                    <p>Vincular Aluno(a)</p><hr>
+                    <div class="alunos_checkbox">
+                        {% for aluno in data_aluno %}
+                        <div class="alunos_checkbox_aluno">
+                            <input type="checkbox" name="{{aluno}}{{forloop.counter}}" id="{{aluno}}{{forloop.counter}}">
+                            <label for="{{aluno}}{{forloop.counter}}">
+                                {{aluno.nome}} / cpf: {{aluno.cpf}} / Data de nascimento: {{aluno.data_nasc}}
+                            </label>
+                        </div>
+                        {% empty %}
+                        <p>SEM ALUNOS CADASTRADOS</p>
+                        {% endfor %}
+                    </div>
+                    <button type="button" id="btn_sair_aluno">Sair</button>
                 </div>
             </div>
         </div>

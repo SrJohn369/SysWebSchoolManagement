@@ -1,6 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from turma.models import Turma
+from docente.models import Docente
+from aluno.models import Aluno
+from disciplina.models import Disciplina
 
 
 @login_required(login_url='loginInicio:login_usuario')
@@ -37,7 +40,30 @@ def turma(request):
 @login_required(login_url='loginInicio:login')
 def cadTurma(request):
     if request.method == 'GET':
-        return render(request, 'cadTurma.html', {'submit': 'Criar Turma'})
+        # instancias dos dados
+        docentes = Docente.objects.all()
+        alunos = Aluno.objects.all()
+        disciplinas = Disciplina.objects.all()
+        # dicionarios de dados em preformatados em json
+        data_docente = [{
+            'nome': docente.first_name
+        }for docente in docentes]
+        
+        data_aluno = [{
+            'nome': aluno.first_name,
+            'cpf': aluno.cpf,
+            'data_nasc': aluno.data_nasc.strftime("%d/%m/%Y")
+        }for aluno in alunos]
+        
+        data_disciplina = [{
+            'nome_disciplina': disciplina.nome_disciplina
+        }for disciplina in disciplinas]
+        
+        
+        return render(request, 'cadTurma.html', {'submit': 'Criar Turma',
+                                                 'data_docente': data_docente,
+                                                 'data_aluno': data_aluno,
+                                                 'data_disciplina': data_disciplina})
     if request.method == 'POST':
         pass
     
