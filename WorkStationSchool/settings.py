@@ -99,7 +99,7 @@ DATABASES['default'] = dj_database_url.parse(
 
 DATABASES['default'] = {
     'ENGINE': 'django.db.backends.sqlite3',
-    'NAME': BASE_DIR / 'db.SchoolManager'
+    'NAME': BASE_DIR / 'db.SchoolManager.sqlite3'
 }
 
 # Password validation
