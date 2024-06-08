@@ -167,6 +167,9 @@ nav{
     display: none; /* Inicia oculto */
     position: fixed; /* Posição fixa na tela */
     z-index: 1; /* Sobrepondo outros elementos */
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
     left: 0;
     top: 0;
     width: 100%;
@@ -174,7 +177,7 @@ nav{
     overflow: auto; /* Adiciona rolagem se necessário */
     background-color: rgba(0, 0, 0, 0.705); /* Fundo semi-transparente */
     /* Estilo para o conteúdo do modal */
-    .modal_content {
+    .modal-content {
       display: flex;
       flex-direction: column;
       background-color: #fefefe;
