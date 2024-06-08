@@ -11,5 +11,5 @@ class Direcao(User):
         return f'{self.username}'
     
     class Meta:
-        verbose_name = 'Diretio(a)'
+        verbose_name = 'Diretor(a)'
 
