@@ -52,15 +52,16 @@ def cadDirecao(request):
         cpf = data.get('cpf')
         email = data.get('email')
         date = data.get('data_nascimento')
-        first_name = nome.split()
-        username = first_name[0] + str(randint(99,99999))
+        names = nome.split()
+        username = names[0] + str(randint(99,99999))
         
         if Direcao.objects.filter(username=username).exists():
-            username = first_name[0] + str(randint(99,99999))
+            username = names[0] + str(randint(99,99999))
         
         cadastrar = Direcao.objects.create_user(
-            username=username, password=senha, first_name=first_name[0],
-            cpf=cpf, email=email, data_nasc=date, last_name=first_name[-1]
+            username=username, password=senha, first_name=names[0],
+            cpf=cpf, email=email, data_nasc=date, 
+            last_name=names[-1] if len(names) > 1 else ''
         )
         data = {
             'mensagem': 'Salvo com sucesso!',
