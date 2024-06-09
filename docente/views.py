@@ -42,28 +42,31 @@ def cadDocente(request):
         return render(request, 'cadDocente.html', {'submit':'Cadastrar',
                                                    'titulo':'Cadastro Docente'})
     if request.method == 'POST':
+        # data
         data = json.loads(request.body)
+        # catch data
         nome = data.get('usuario')
         senha = data.get('senha')
         cpf = data.get('cpf')
         email = data.get('email')
         date = data.get('data_nascimento')
-        first_name = nome.split()
-        username = first_name[0] + str(randint(99,99999))
-
+        names = nome.split()
+        username = names[0] + str(randint(99,99999))
+        # verifica se ja existe
         if Docente.objects.filter(username=username).exists():
             username = nome + str(randint(99,99999))
-
+        # cria um obj
         cadastrar = Docente.objects.create_user(
-            username=username, password=senha, first_name=first_name[0],
-            cpf=cpf, email=email, data_nasc=date
+            username=username, password=senha, first_name=names[0],
+            cpf=cpf, email=email, data_nasc=date, 
+            last_name=names[-1] if len(names) > 1 else ''
         )
-        
+        # data para JsonResponse
         data = {
             'mensagem': 'Salvo com sucesso!',
             'user': f'{username}'
         }
-        
+        # salva
         try:
             cadastrar.save()
             return JsonResponse(data=data, status=201)
