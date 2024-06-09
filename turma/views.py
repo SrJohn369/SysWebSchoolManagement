@@ -26,9 +26,10 @@ def turma(request):
         turmas = Turma.objects.all()
         turmas_data = [
             {
-            'nome_turma': turma.nome_turma,
-            'data_criacao': turma.data_criacao.strftime('%d/%m/%Y'),
-            'ano': turma.ano
+                'id': turma.id,
+                'nome_turma': turma.nome_turma,
+                'data_criacao': turma.data_criacao.strftime('%d/%m/%Y'),
+                'ano': turma.ano
             } for turma in turmas
         ]
         

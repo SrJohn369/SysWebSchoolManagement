@@ -22,6 +22,7 @@ def direcao(request):
         Diretores = Direcao.objects.all()
         direcao_data = [
             {
+            'id': direcao.id,
             'nome': direcao.first_name + ' ' + direcao.last_name,
             'cpf': direcao.cpf,
             'data_nascimento': direcao.data_nasc.strftime('%d/%m/%Y')
@@ -40,4 +41,5 @@ def altDirecao(request):
         
 @login_required(login_url='loginInicio:login')
 def excluirDirecao(request):
-    pass
+    if request.method == "DELETE":
+        pass

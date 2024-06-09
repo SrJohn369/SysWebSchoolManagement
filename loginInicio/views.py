@@ -1,4 +1,5 @@
 import json
+import uuid
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -60,7 +61,7 @@ def cadDirecao(request):
         
         cadastrar = Direcao.objects.create_user(
             username=username, password=senha, first_name=names[0],
-            cpf=cpf, email=email, data_nasc=date, 
+            cpf=cpf, email=email, data_nasc=date, id=randint(9999999,99999999999),
             last_name=names[-1] if len(names) > 1 else ''
         )
         data = {

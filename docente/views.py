@@ -25,9 +25,10 @@ def docente(request):
         Docentes = Docente.objects.all()
         docente_data = [
             {
-            'nome': docente.first_name + ' ' + docente.last_name,
-            'cpf': docente.cpf,
-            'data_nascimento': docente.data_nasc.strftime('%d/%m/%Y')
+                'id': docente.id,
+                'nome': docente.first_name + ' ' + docente.last_name,
+                'cpf': docente.cpf,
+                'data_nascimento': docente.data_nasc.strftime('%d/%m/%Y')
             } for docente in Docentes
         ]
         # print(alunos_data)
@@ -58,7 +59,7 @@ def cadDocente(request):
         # cria um obj
         cadastrar = Docente.objects.create_user(
             username=username, password=senha, first_name=names[0],
-            cpf=cpf, email=email, data_nasc=date, 
+            cpf=cpf, email=email, data_nasc=date, id=randint(9999999,99999999999),
             last_name=names[-1] if len(names) > 1 else ''
         )
         # data para JsonResponse

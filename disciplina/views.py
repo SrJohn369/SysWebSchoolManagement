@@ -3,6 +3,7 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render
+from random import randint
 
 from disciplina.models import Disciplina
 
@@ -25,8 +26,9 @@ def disciplina(request):
         disciplinas = Disciplina.objects.all()
         disciplinas_data = [
             {
-            'nome_disciplina': disciplina.nome_disciplina,
-            'data_criacao': disciplina.data_criacao.strftime('%d/%m/%Y')
+                'id': disciplina.id,
+                'nome_disciplina': disciplina.nome_disciplina,
+                'data_criacao': disciplina.data_criacao.strftime('%d/%m/%Y')
             } for disciplina in disciplinas
         ]
         
@@ -49,6 +51,7 @@ def cadDisciplina(request):
         
         # Obj
         disciplina = Disciplina.objects.create(
+            id=randint(9999999,99999999999),
             nome_disciplina=nome_diciplina,
             data_criacao=data_cad_disciplina
         )

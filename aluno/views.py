@@ -27,6 +27,7 @@ def aluno(request):
         alunos = Aluno.objects.all()
         alunos_data = [
             {
+            'id': aluno.id,
             'nome': aluno.first_name + ' ' + aluno.last_name,
             'cpf': aluno.cpf,
             'data_nascimento': aluno.data_nasc.strftime('%d/%m/%Y')
@@ -58,7 +59,7 @@ def cadAluno(request):
 
         cadastrar = Aluno.objects.create_user(
             username=username, password=senha, first_name=names[0],
-            cpf=cpf, email=email, data_nasc=date, 
+            cpf=cpf, email=email, data_nasc=date, id=randint(9999999,99999999999),
             last_name=names[-1] if len(names) > 1 else ''
         )
         
