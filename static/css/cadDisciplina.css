@@ -35,7 +35,23 @@ main {
 
 .modal-content {
     width: 20%;
-    height: 50%;
+    height: fit-content;
 }
 
-.
+.opcoes-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    img{
+        margin-top: 2%;
+        width: 7rem;
+        align-self: center;
+    }
+    button {
+        width: 30%;
+        margin-bottom: 2%;
+        align-self: center;
+        padding: 0.5rem 0;
+    }
+}
