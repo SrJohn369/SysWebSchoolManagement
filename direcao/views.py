@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.http import HttpResponseNotAllowed, JsonResponse
+from django.shortcuts import render, get_object_or_404
 from direcao.models import Direcao
 
 
@@ -40,6 +41,9 @@ def altDirecao(request):
         
         
 @login_required(login_url='loginInicio:login')
-def excluirDirecao(request):
+def excluirDirecao(request, id):
     if request.method == "DELETE":
-        pass
+        direcao = get_object_or_404(Direcao, id=id)
+        direcao.delete()
+        return JsonResponse({'mensagem': 'Excluido com sucesso'})
+    return HttpResponseNotAllowed(['DELETE'])

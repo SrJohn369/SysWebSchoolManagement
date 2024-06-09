@@ -48,7 +48,7 @@
                         {% endif %}
                         <td>
                             {% for td, link in data_static.td_links.items %}
-                                <a href="{% url link %}id={{data.id}}" id="{{td}}">{{td}}</a>
+                                <a href="{% url link data.id %}">{{td}}</a>
                             {% endfor %}
                         </td>
                     </tr>
