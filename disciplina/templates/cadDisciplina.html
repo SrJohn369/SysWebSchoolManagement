@@ -18,11 +18,25 @@
                 <label for="Data de Nascimento">Data de criação</label>
                 <input type="date" name="Data de Nascimento" id="dateCad">
             </div>
-            <input type="submit" value='{{data_static}}'>
+            <input type="submit" value='{{data_static}}' id="cad_turma">
+            <!-- confirmação -->
+            <div id="cadSuccessfully" class="modal" >
+                <div class="modal-content" >
+                    <div class="opcoes-content">
+                        <!-- pop-up content-->
+                        <img src={% static "img/icons8-check-96.png" %}>
+                        <p>Cadastro efetuado com sucesso!</p>
+                        <button type="button" onclick="voltarConfirm()" id="sair_btn">
+                            Sair
+                        </button>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
 
 {% endblock main %}
 
 {% block javascript %}
+<script src={% static "javascript/cadDisciplina.js" %}></script>
 {% endblock javascript %}

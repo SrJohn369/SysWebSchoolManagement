@@ -1,5 +1,9 @@
+import json
+
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
 from django.shortcuts import render
+
 from disciplina.models import Disciplina
 
 
@@ -36,7 +40,27 @@ def cadDisciplina(request):
     if request.method == 'GET':
         return render(request, 'cadDisciplina.html', {'data_static':'Criar'})
     
-
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        
+        # Dados
+        nome_diciplina = data.get("nome_diciplina")
+        data_cad_disciplina = data.get("data_cad_disciplina")
+        
+        # Obj
+        disciplina = Disciplina.objects.create(
+            nome_disciplina=nome_diciplina,
+            data_criacao=data_cad_disciplina
+        )
+        
+        # Salvar disciplina
+        try:
+            disciplina.save()
+            return JsonResponse(data={'mensagem': 'Sucesso ao criar disciplina'}, status=201)
+        except:
+            return JsonResponse(data={'mensagem': 'Erro ao salvar'}, status=500)
+        
+    
 @login_required(login_url='loginInicio:login')    
 def altDisciplina(request):
     if request.method == 'GET':

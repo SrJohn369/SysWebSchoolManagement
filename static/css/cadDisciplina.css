@@ -32,3 +32,10 @@ main {
 .infos_content input[type=submit] {
     width: 20%;
 }
+
+.modal-content {
+    width: 20%;
+    height: 50%;
+}
+
+.
