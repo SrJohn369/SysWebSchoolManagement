@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>
                     {% for data in data_cadastros %}
-                    <tr>
+                    <tr id="{{data.id}}">
                         {% if data.cpf %}
                         <td>{{data.nome}}</td>
                         <td>{{data.cpf}}</td>
@@ -48,7 +48,9 @@
                         {% endif %}
                         <td>
                             {% for td, link in data_static.td_links.items %}
-                                <a href="{% url link data.id %}">{{td}}</a>
+                                <a href="#" onclick="linkMudança(event, '{% url link data.id %}', '{{td}}', {{data.id}})">
+                                    {{td}}
+                                </a>
                             {% endfor %}
                         </td>
                     </tr>
@@ -65,4 +67,5 @@
 {% endblock main %}
 
 {% block javascript %}
+<script src="{% static "javascript/alterarExcluir.js" %}"></script>
 {% endblock javascript %}
