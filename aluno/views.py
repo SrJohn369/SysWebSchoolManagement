@@ -85,7 +85,7 @@ def altAluno(request):
 @login_required(login_url='loginInicio:login_usuario')
 def excluirAluno(request, id):
     if request.method == "DELETE":
-        direcao = get_object_or_404(Aluno, id=id)
-        direcao.delete()
+        aluno = get_object_or_404(Aluno, id=id)
+        aluno.delete()
         return JsonResponse({'mensagem': 'Excluido com sucesso'})
     return HttpResponseNotAllowed(['DELETE'])

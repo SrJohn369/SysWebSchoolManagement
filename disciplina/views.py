@@ -1,8 +1,8 @@
 import json
 
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
-from django.shortcuts import render
+from django.http import HttpResponseNotAllowed, JsonResponse
+from django.shortcuts import get_object_or_404, render
 from random import randint
 
 from disciplina.models import Disciplina
@@ -71,5 +71,9 @@ def altDisciplina(request):
     
 
 @login_required(login_url='loginInicio:login')
-def excluirDisciplina(request):
-    pass
+def excluirDisciplina(request, id):
+    if request.method == "DELETE":
+        disciplina = get_object_or_404(Disciplina, id=id)
+        disciplina.delete()
+        return JsonResponse({'mensagem': 'Excluido com sucesso'})
+    return HttpResponseNotAllowed(['DELETE'])
