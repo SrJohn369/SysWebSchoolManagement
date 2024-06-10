@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.http import HttpResponseNotAllowed, JsonResponse
+from django.shortcuts import get_object_or_404, render
+
 from turma.models import Turma
 from docente.models import Docente
 from aluno.models import Aluno
@@ -68,16 +70,22 @@ def cadTurma(request):
     if request.method == 'POST':
         pass
     
-    
+ 
+# PUT   
 @login_required(login_url='loginInicio:login')
 def altTurma(request):
     if request.method == 'GET':
         return render(request, 'cadTurma.html', {'submit': 'Alterar Turma'})
     
     
+# DELETE
 @login_required(login_url='loginInicio:login')
-def excluirTurma(request):
-    pass
+def excluirTurma(request, id):
+    if request.method == "DELETE":
+        turma = get_object_or_404(Turma, id=id)
+        turma.delete()
+        return JsonResponse({'mensagem': 'Excluido com sucesso'})
+    return HttpResponseNotAllowed(['DELETE'])
 
 
 @login_required(login_url='loginInicio:login')
