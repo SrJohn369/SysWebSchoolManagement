@@ -62,7 +62,7 @@ def cadTurma(request):
             'nome_disciplina': disciplina.nome_disciplina
         }for disciplina in disciplinas]
         
-        
+        # renderiza pagina
         return render(request, 'cadTurma.html', {'submit': 'Criar Turma',
                                                  'data_docente': data_docente,
                                                  'data_aluno': data_aluno,

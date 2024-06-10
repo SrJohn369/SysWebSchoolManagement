@@ -47,7 +47,7 @@
                         {% for disciplina in data_disciplina %}
                         <div class="disciplinas_checkbox_disciplina">
                             <input type="checkbox" name="checkbox{{forloop.counter}}" id="checkboxID{{forloop.counter}}">
-                            <label for="checkbox{{forloop.counter}}">{{disciplina}}</label>
+                            <label for="checkbox{{forloop.counter}}">{{disciplina.nome_disciplina}}</label>
                         </div>
                         {% empty %}
                         <p>SEM DISCIPLINAS</p>
