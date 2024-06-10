@@ -31,7 +31,7 @@ def docente(request):
                 'data_nascimento': docente.data_nasc.strftime('%d/%m/%Y')
             } for docente in Docentes
         ]
-        print(docente_data)
+        # print(docente_data)
         
         return render(request, 'baseListagem.html', {'data_static': data_static,
                                                      'data_cadastros': docente_data})

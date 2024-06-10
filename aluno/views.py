@@ -1,8 +1,8 @@
 import json
 
 from django.contrib.auth.decorators import login_required
-from django.http import JsonResponse
-from django.shortcuts import render
+from django.http import HttpResponseNotAllowed, JsonResponse
+from django.shortcuts import get_object_or_404, render
 
 from aluno.models import Aluno
 from random import randint
@@ -83,5 +83,9 @@ def altAluno(request):
 
 
 @login_required(login_url='loginInicio:login_usuario')
-def excluirAluno(request):
-    pass
+def excluirAluno(request, id):
+    if request.method == "DELETE":
+        direcao = get_object_or_404(Aluno, id=id)
+        direcao.delete()
+        return JsonResponse({'mensagem': 'Excluido com sucesso'})
+    return HttpResponseNotAllowed(['DELETE'])
