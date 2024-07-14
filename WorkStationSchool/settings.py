@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'syswebschoolmanagement.onrender.com', 'localhost'
+    'syswebschoolmanagement.onrender.com', 'localhost', '127.0.0.1'
 ]
 CORS_ALLOWED_ORIGINS = [
     'https://127.0.0.1:8000', 'https://syswebschoolmanagement.onrender.com'

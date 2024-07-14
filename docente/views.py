@@ -76,10 +76,27 @@ def cadDocente(request):
     
     
 @login_required(login_url='loginInicio:login_usuario')
-def altDocente(request):
-    if request.method == 'GET':
-        return render(request, 'cadDocente.html', {{'submit':'Alterar',
-                                                   'titulo':'Alterar Docente'}})
+def altDocente(request, id):
+    if request.method == "PUT":
+        dados = json.loads(request.body)
+        
+        nome = dados.get('nome')
+        sep_nome = nome.split()
+        data_nasc = dados.get('data_nascimento')
+        first_name = sep_nome[0]
+        last_name = sep_nome[1] if len(sep_nome) > 1 else ''
+        
+        docente = Docente.objects.get(id=id)
+        docente.data_nasc = data_nasc
+        docente.first_name = first_name
+        docente.last_name = last_name
+
+        
+        try:
+            docente.save()
+            return JsonResponse(data={'mensagem': 'Atuaalizado'}, status=204)
+        except:
+            return JsonResponse(data={'mensagem': 'Erro ao salvar'}, status=500)
     
 
 @login_required(login_url='loginInicio:login_usuario')

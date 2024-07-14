@@ -18,6 +18,7 @@
         <nav>
             <h4>Edu Station</h4>
             <h1><a href={% url "loginInicio:inicio" %}>Direção WorkStation</a></h1>
+            {% if user.is_authenticated %}
             <div class="dropdown">
                 <img src={% static "img/icone_perfil.jpg" %} alt="perfil" class="dropbtn" id="img-drop">
                 <div class="dropdown_menu">
@@ -25,10 +26,12 @@
                     <a href="{% url 'loginInicio:logout_usuario' %}">Exit</a>
                 </div>
             </div>
+            {% endif %}
         </nav>
     </header>
     <main>
         <div id="carregamento" >
+            <img src={% static "img/loading.png" %} alt="carregando...">
             <p>Carregando...</p>
         </div>
         {% block main %}
@@ -36,5 +39,36 @@
     </main>
 
     {% block javascript %}{% endblock javascript %}
+    <script>
+        console.log("deu certo!! SCRIPT CARREGADO");
+        
+        document.addEventListener('input', (event) => {
+            // o evento input é capturado no documento e, em seguida, 
+            // verificado se o alvo do evento é o input específico 
+            // que se está interessado. 
+            if (event.target && event.target.id === 'cpf_input') {
+                // expressão regular \s+ corresponde a um ou mais espaços em branco
+                let newValue = event.target.value.replace(/\s+/g, '');
+                let arraySTR = newValue.split(""); //transforma num array
+                console.log(arraySTR);
+                console.log(typeof newValue);
+
+                
+                setTimeout(() => {
+                    if (arraySTR.length === 3 && !newValue.includes(".")) {
+                        arraySTR.splice(3,0,".");
+                    } else if (arraySTR.length === 7 && newValue.includes(".")) {
+                        arraySTR.splice(7,0,".");
+                    } else if (arraySTR.length === 11 && !newValue.includes("-")) {
+                        arraySTR.splice(11,0,"-");
+                    }
+                        newValue = arraySTR.join("");
+                        event.target.value = newValue;
+                }, 100);
+
+                console.log('Valor sem espaços: ' + newValue);
+            }
+        });
+    </script>
 </body>
 </html>

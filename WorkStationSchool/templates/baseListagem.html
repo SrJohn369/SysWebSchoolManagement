@@ -33,7 +33,7 @@
                 </thead>
                 <tbody>
                     {% for data in data_cadastros %}
-                    <tr id="{{data.id}}">
+                    <tr id="{{data.id}}" class="alteracoes_tr">
                         {% if data.cpf %}
                         <td>{{data.nome}}</td>
                         <td>{{data.cpf}}</td>

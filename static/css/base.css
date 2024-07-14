@@ -13,6 +13,15 @@
     list-style: none;
     text-decoration: none;
 }
+/* Definindo a animação de rotação */
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 /* TAGS */
 main{
     display: flex;
@@ -48,7 +57,7 @@ nav{
     }
     h1{
         justify-self: center;
-        align-self: center;
+        align-self: center; 
     }
 }
 .spanInfo {
@@ -160,6 +169,10 @@ nav{
     color: white;
     font-size: 2em;
     display: none;
+    flex-direction: column;
+    img {
+        animation: rotation 2s linear infinite;
+    }
 }
 
 /* TELA DE POP-UP */
