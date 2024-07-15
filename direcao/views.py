@@ -1,3 +1,5 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseNotAllowed, JsonResponse
 from django.shortcuts import render, get_object_or_404
@@ -35,9 +37,26 @@ def direcao(request):
     
 
 @login_required(login_url='loginInicio:login')
-def altDirecao(request):
-    if request.method == 'GET':
-        return render(request, 'alterar.html')
+def altDirecao(request, id):
+    if request.method == "PUT":
+        dados = json.loads(request.body)
+        
+        nome = dados.get('nome')
+        sep_nome = nome.split()
+        data_nasc = dados.get('data_nascimento')
+        first_name = sep_nome[0]
+        last_name = sep_nome[1] if len(sep_nome) > 1 else ''
+        
+        direcao = Direcao.objects.get(id=id)
+        direcao.data_nasc = data_nasc
+        direcao.first_name = first_name
+        direcao.last_name = last_name
+
+        try:
+            direcao.save()
+            return JsonResponse(data={'mensagem': 'Atuaalizado'}, status=204)
+        except:
+            return JsonResponse(data={'mensagem': 'Erro interno ao salvar'}, status=500)
         
         
 @login_required(login_url='loginInicio:login')

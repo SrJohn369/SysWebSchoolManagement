@@ -1,5 +1,4 @@
 from django.db import models
-from turma.models import Turma
 
 
 class Disciplina(models.Model):

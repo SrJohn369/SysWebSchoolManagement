@@ -1,6 +1,7 @@
 import json
 
 from django.contrib.auth.decorators import login_required
+from django.forms import ValidationError
 from django.http import HttpResponseNotAllowed, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from random import randint
@@ -65,9 +66,23 @@ def cadDisciplina(request):
         
     
 @login_required(login_url='loginInicio:login')    
-def altDisciplina(request):
-    if request.method == 'GET':
-        return render(request, 'cadDisciplina.html', {'data_static':'Alterar'})    
+def altDisciplina(request, id):
+    if request.method == "PUT":
+        dados = json.loads(request.body)
+        
+        nome_disciplina = dados.get('nome_diciplina')
+        data_criacao = dados.get('data_cad_disciplina')
+        
+        disciplina = Disciplina.objects.get(id=id)
+        disciplina.data_criacao = data_criacao
+        disciplina.nome_disciplina = nome_disciplina
+        
+        try:
+            disciplina.save()
+            return JsonResponse(data={'mensagem': 'Atuaalizado'}, status=204)
+        except ValidationError as err:
+            print(err.message)
+            return JsonResponse(data={'mensagem': 'Erro interno ao salvar'}, status=500)
     
 
 @login_required(login_url='loginInicio:login')

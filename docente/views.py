@@ -91,12 +91,11 @@ def altDocente(request, id):
         docente.first_name = first_name
         docente.last_name = last_name
 
-        
         try:
             docente.save()
             return JsonResponse(data={'mensagem': 'Atuaalizado'}, status=204)
         except:
-            return JsonResponse(data={'mensagem': 'Erro ao salvar'}, status=500)
+            return JsonResponse(data={'mensagem': 'Erro interno ao salvar'}, status=500)
     
 
 @login_required(login_url='loginInicio:login_usuario')

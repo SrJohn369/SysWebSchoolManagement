@@ -76,10 +76,26 @@ def cadAluno(request):
 
 
 @login_required(login_url='loginInicio:login_usuario')
-def altAluno(request):
-    if request.method == 'GET':
-        return render(request, 'cadAluno.html', {'titulo': 'Alterar Aluno(a)',
-                                                 'submit': 'Alterar'})
+def altAluno(request, id):
+    if request.method == "PUT":
+        dados = json.loads(request.body)
+        
+        nome = dados.get('nome')
+        sep_nome = nome.split()
+        data_nasc = dados.get('data_nascimento')
+        first_name = sep_nome[0]
+        last_name = sep_nome[1] if len(sep_nome) > 1 else ''
+        
+        aluno = Aluno.objects.get(id=id)
+        aluno.data_nasc = data_nasc
+        aluno.first_name = first_name
+        aluno.last_name = last_name
+
+        try:
+            aluno.save()
+            return JsonResponse(data={'mensagem': 'Atuaalizado'}, status=204)
+        except:
+            return JsonResponse(data={'mensagem': 'Erro interno ao salvar'}, status=500)
 
 
 @login_required(login_url='loginInicio:login_usuario')

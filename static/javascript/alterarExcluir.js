@@ -23,7 +23,13 @@ function linkMudança(event, url, acao, id) {
         // aplicando valores nas colunas
         colunas.forEach((coluna, i) => {
             const inputToTxt = coluna.querySelector('input');
-            if (i !== colunas.length - 1) {
+            if (colunas.length === 3 && i === 1 && inputToTxt.value.includes('-')) {
+                let [y, m, d] = inputToTxt.value.split('-');
+                coluna.innerHTML = `${d}/${m}/${y}`;
+            } else if (colunas.length === 4 && i === 2 && inputToTxt.value.includes('-')) {
+                let [y, m, d] = inputToTxt.value.split('-');
+                coluna.innerHTML = `${d}/${m}/${y}`;
+            } else if (i !== colunas.length - 1) {
                 coluna.innerHTML = inputToTxt.value;
             } else {
                 coluna.innerHTML = links;
@@ -31,21 +37,24 @@ function linkMudança(event, url, acao, id) {
         });
 
         // verifica qual tipo de tabela de exibição
+        [d, m, y] = colunas[2].textContent.split('/');
+        let dataFormatada = `${y}-${m}-${d}`;
         if (titulos[0].textContent === 'Nome') {
             dadosJson = {
                 'nome': colunas[0].textContent,
-                'data_nascimento': colunas[2].textContent
+                'data_nascimento': dataFormatada
             };
         } else if (titulos[0].textContent === 'Nome da Disciplina') {
+            [d, m, y] = colunas[1].textContent.split('/');
             dadosJson = {
                 'nome_diciplina': colunas[0].textContent,
-                'data_cad_disciplina': colunas[1].textContent
+                'data_cad_disciplina': `${y}-${m}-${d}`
             };
         } else if (titulos[0].textContent === 'Nome da Turma') {
             dadosJson = {
                 'nome_turma': colunas[0].textContent,
                 'ano': colunas[1].textContent,
-                'data_criação': colunas[2].textContent
+                'data_criação': dataFormatada
             };
         }
         // criando request
@@ -59,9 +68,11 @@ function linkMudança(event, url, acao, id) {
         .then(response => {
             if (response.status === 204) {
                 console.log("Atualizado com sucesso!");
-            } else {
-                console.log("DEU RUIM");
             }
+            console.log(response);
+        })
+        .then((data) => {
+            console.log(data);
         })
     }
     // restaura valores nas colunas
